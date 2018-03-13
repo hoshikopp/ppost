@@ -9,30 +9,27 @@
    <%= link_to '投稿する', new_post_path, class:"btn btn-primary" %>
  </div>
  <div class="row">
-   <div class="col-sm-6 col-sm-offset-3">
-    <div id="new-post-link">
-      <table class="table">
+   <div class="col-sm-10 col-lg-10 col-sm-offset-1">
+    <div id="new-post-link" class="row">
+      <table class="table" style="table-layout:fixed;">
         <tr>
-          <th>ツイート内容</th>
+          <th style="width:300px;">ツイート内容</th>
           <th>詳細</th>
           <th>編集</th>
           <th>削除</th>
           <th>投稿日時</th>
         </tr>
+        <% @posts.each do |post|%>
+          <tr>
+            <td><%= post.content%></td>
+            <td><%= link_to '詳細',post_path(post.id),class:"btn btn-default btn-sm btn-info"%></td>
+            <td><%= link_to '編集',edit_post_path(post.id),class:"btn btn-default btn-sm btn-success" %></td>
+            <td><%= link_to '削除',post_path(post.id),method: :delete ,data:{confirm:'本当に削除していいですか？'},class:"btn btn-default btn-sm btn-danger" %></td>
+    　　　　  <td><%= post.created_at.strftime('%Y年%m月%d日 %H:%M') %></td>
+          </tr>
+          <% end %>
+        </table>
       </div>
     </div>
-  <div class="row">
-    <div class="col-sm-6 col-sm-offset-3">
-    <% @posts.each do |post|%>
-      <tr>
-        <td><%= post.content%></td>
-        <td><%= link_to '詳細を表示する',post_path(post.id),class:"btn btn-default btn-sm btn-info"%></td>
-        <td><%= link_to '編集する',edit_post_path(post.id),class:"btn btn-default btn-sm btn-success" %></td>
-        <td><%= link_to '削除する',post_path(post.id),method: :delete ,data:{confirm:'本当に削除していいですか？'},class:"btn btn-default btn-sm btn-danger" %></td>
-　　　　  <td><%= post.created_at.strftime('%Y年%m月%d日 %H:%M') %></td>
-      </tr>
-      <% end %>
-      </div>
-    </div>
-    </table>
   </div>
+</div>
