@@ -5,20 +5,18 @@
 </div>
 <div class="container">
 　<div class="row">
+  <%if @post.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= @post.errors.count %>件のエラーがあります。。</h2>
+      <ul>
+        <% @post.errors.full_messages.each do|msg|%>
+        <li><%=msg%></li>
+      <% end %>
+      </ul>
+    </div>
+ <% end %>
    <div id="new-post-link">
-        <%=form_with(model:@post,local:true,url: choose_new_or_edit) do |form|%>
-          <%if @post.errors.any? %>
-            <div id="error_explanation">
-              <h2><%= @post.errors.count %>件のエラーがあります。。</h2>
-              <ul>
-                <% @post.errors.full_messages.each do|msg|%>
-                <li><%=msg%></li>
-              <% end %>
-              </ul>
-            </div>
-         <% end %>
-     </div>
-  <form>
+        <%=form_with(model: @post, local:true, method: :patch) do |form|%>
     <div class="row">
      <div class="col-sm-6 col-sm-offset-3">
         <div class="form-group">
@@ -28,6 +26,7 @@
          <%=form.submit "投稿する",class:'btn btn-primary' %>
         <% end %>
  　  </div>
+    </div>
     </div>
    </div>
   </div>
