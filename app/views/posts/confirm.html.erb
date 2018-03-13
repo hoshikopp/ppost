@@ -9,7 +9,7 @@
    <div id="new-post-link">
      <div class="col-sm-6 col-sm-offset-3">
        <div class="form-group">
-          <%= form_with(model:@post,url:posts_path,local:true) do |form|%>
+          <%= form_with(model:@post, url: posts_path,local:true) do |form|%>
             <%= form.hidden_field :content%>
 
             <h1>投稿内容: <%=@post.content%></h1>
