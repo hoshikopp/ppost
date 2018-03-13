@@ -1,0 +1,27 @@
+<div class="page-header">
+  <div class="top">
+    <h2>以下の内容で投稿します！</h2>
+  </div>
+</div>
+
+<div class="container">
+　<div class="row">
+   <div id="new-post-link">
+     <div class="col-sm-6 col-sm-offset-3">
+       <div class="form-group">
+          <%= form_with(model:@post,url:posts_path,local:true) do |form|%>
+            <%= form.hidden_field :content%>
+
+            <h1>投稿内容: <%=@post.content%></h1>
+            <%=form.submit "登録する",class:'btn btn-primary btn-sm' %>
+            <% end %>
+
+          <%=form_with(model:@post,url:new_post_path,local:true,method:'get') do |form|%>
+            <%= form.hidden_field :content %>
+            <%= form.submit'戻る',name:'back',class:'btn btn-danger btn-sm'%>
+          <%end%>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
