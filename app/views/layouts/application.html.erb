@@ -15,7 +15,8 @@
       <div class="container">
         <div class="top-link">
           <ul class="nav navbar-nav navbar-right">
-                <li><%= link_to 'TOP',posts_path %></li>
+                <li><%= link_to 'TOP',root_path %></li>
+                <li><%= link_to '投稿一覧',posts_path %></li>
                 <li><%= link_to '投稿する',new_post_path %></li>
           </ul>
       　</div>
@@ -26,5 +27,9 @@
 　<div class="container">
       <%= yield %>
   </div>
+  <footer class="footer">
+    <div class="container">
+    </div>
+  </footer>
   </body>
 </html>

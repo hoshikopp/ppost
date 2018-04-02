@@ -1,17 +1,36 @@
+html {
+  margin: auto;
+  min-height: 100%;
+}
+
 body {
-  width: 980px;
   height: auto;
+  width: auto;
   padding-top: 50px;
-  padding-bottom: 90px;
-  padding-left: 100px;
-  padding-right: 100px;
+  padding-bottom: 0;
+  position: relative;
 }
 
 h1 {
   font-size: 22px;
 }
 
-
 #new-post-link  td {
   word-wrap: break-word;
+}
+
+.header {
+  background-color: #add8e6;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;  /* Set the fixed height of the footer here */
+  height: 40px;
+  background-color: #add8e6;
+  position: fixed;
+  margin-bottom: 0;
+}
+.image {
+  text-align: center;
 }
